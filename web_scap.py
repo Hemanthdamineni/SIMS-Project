@@ -2,6 +2,9 @@ import requests
 from bs4 import BeautifulSoup
 
 repo_url = "https://github.com/Karthik0000007/Bagging"
+"""
+Happy to help you with this. I have written a Python script that can download all files from a GitHub repository.
+"""
 branch = "main"  # Change to "master" if needed
 
 # Step 1: Get all file paths
