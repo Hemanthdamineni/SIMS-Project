@@ -10,7 +10,7 @@ def Downloader(repo_link):
     files = soup.find_all('tr', class_="react-directory-row undefined")
 
     for file in files:
-        links = set(file.find_all('a', class_="Link--primarygit "))
+        links = set(file.find_all('a', class_="Link--primary"))
         
         for link in links:
             link = 'https://raw.githubusercontent.com/'+ link.get('href').replace('blob/','')
