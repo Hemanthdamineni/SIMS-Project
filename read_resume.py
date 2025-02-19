@@ -10,5 +10,5 @@ def extract_text_from_pdf(pdf_path):
                 text += page_text + "\n"  
     return text
 
-resume_text = extract_text_from_pdf("Resume.pdf")
+resume_text = extract_text_from_pdf("me.pdf")
 print(resume_text)
