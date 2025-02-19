@@ -1,7 +1,7 @@
 import requests as req
 from bs4 import BeautifulSoup as bs
 import lxml
-import Resume_Scrapper.read_resume as read_resume
+import read_resume as read_resume
 
 def Downloader(repo_link):
     html_text = req.get(repo_link).text
@@ -18,7 +18,7 @@ def Downloader(repo_link):
 
             if req.get(link).status_code == 200:
                 filename = link.split("/")[-1].replace("%20", " ")
-                with open("Downloaded/"+filename, "wb") as f:
+                with open("/workspaces/SIMS-Project/Resume_Scrapper/Downloaded/"+filename, "wb") as f:
                     f.write(file_response.content)
                 print(f"Downloaded: {filename}")
             else:
@@ -26,7 +26,7 @@ def Downloader(repo_link):
                 print(f"Status code: {file_response.status_code}")
 
 if __name__ == "__main__":  
-    pdf_path = "Resume.pdf"
+    pdf_path = "/workspaces/SIMS-Project/Resume_Scrapper/Resume.pdf"
 
     resume_text, extracted_links = read_resume.extract_text_and_links_from_pdf(pdf_path)
 
