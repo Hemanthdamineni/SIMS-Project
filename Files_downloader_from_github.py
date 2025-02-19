@@ -1,9 +1,10 @@
 import requests as req
 from bs4 import BeautifulSoup as bs
+import lxml
 
 html_text = req.get('https://github.com/karthickai/Linear-Regression').text
 
-soup = bs(html_text)
+soup = bs(html_text, 'lxml')
 files = soup.find_all('tr', class_="react-directory-row undefined")
 
 for file in files:
