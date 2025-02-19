@@ -1,7 +1,7 @@
 import requests as req
 from bs4 import BeautifulSoup as bs
 import lxml
-import read_resume
+import Resume_Scrapper.read_resume as read_resume
 
 def Downloader(repo_link):
     html_text = req.get(repo_link).text
