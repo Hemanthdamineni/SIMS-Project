@@ -18,13 +18,3 @@ def extract_text_and_links_from_pdf(pdf_path):
     
     return text, links
 
-pdf_path = "Resume.pdf"
-
-resume_text, extracted_links = extract_text_and_links_from_pdf(pdf_path)
-
-print("Extracted Text:")
-print(resume_text)
-
-print("\nExtracted Links:")
-for link in extracted_links:
-    print(link)
