@@ -8,7 +8,7 @@ soup = bs(html_text, 'lxml')
 files = soup.find_all('tr', class_="react-directory-row undefined")
 
 for file in files:
-    links = set(file.find_all('a', class_="Link--primary"))
+    links = set(file.find_all('a', class_="Link--primarygit "))
     
     for link in links:
         link = 'https://raw.githubusercontent.com/'+ link.get('href').replace('blob/','')
