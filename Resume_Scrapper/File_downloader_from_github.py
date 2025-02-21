@@ -26,7 +26,7 @@ def Downloader(repo_link):
                 print(f"Status code: {file_response.status_code}")
 
 if __name__ == "__main__":  
-    pdf_path = "Resume_Scrapper/Resume.pdf"
+    pdf_path = "Resume_Scrapper/Resumes/autoCV (1).pdf"
 
     resume_text, extracted_links = read_resume.extract_text_and_links_from_pdf(pdf_path)
     
