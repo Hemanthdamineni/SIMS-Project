@@ -29,13 +29,13 @@ if __name__ == "__main__":
     pdf_path = "Resume_Scrapper/Resume.pdf"
 
     resume_text, extracted_links = read_resume.extract_text_and_links_from_pdf(pdf_path)
+    
+    print(f"Extractd Text: {resume_text}")
 
-    print("Extracted Text:")
-    print(resume_text)
-
-    print("\nExtracted Links:")
+    print("Extracted Links:")
     for link in extracted_links:
         print(link)
+    print("\n")
     
     for link in extracted_links:
         if "github" in link:

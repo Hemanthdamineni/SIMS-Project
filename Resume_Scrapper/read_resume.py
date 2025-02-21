@@ -1,15 +1,12 @@
 import pdfplumber
+import pdfminer.high_level as pm
 
 def extract_text_and_links_from_pdf(pdf_path):
-    text = ""
+    text = pm.extract_text(pdf_path)
     links = []
     
     with pdfplumber.open(pdf_path) as pdf:
         for page in pdf.pages:
-            page_text = page.extract_text()
-            if page_text:
-                text += page_text
-            
             hyperlinks = page.hyperlinks
             if hyperlinks:
                 for hyperlink in hyperlinks:
@@ -17,4 +14,3 @@ def extract_text_and_links_from_pdf(pdf_path):
                         links.append(hyperlink['uri'])
     
     return text, links
-
