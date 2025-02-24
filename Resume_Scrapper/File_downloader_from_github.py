@@ -18,25 +18,9 @@ def Downloader(repo_link):
 
             if req.get(link).status_code == 200:
                 filename = link.split("/")[-1].replace("%20", " ")
-                with open("Resume_Scrapper/Downloaded/"+filename, "wb") as f:
+                with open("Resume_Scrapper/Downloaded/code_files"+filename, "wb") as f:
                     f.write(file_response.content)
                 print(f"Downloaded: {filename}")
             else:
                 print(f"Failed to download: {link}")
                 print(f"Status code: {file_response.status_code}")
-
-if __name__ == "__main__":  
-    pdf_path = "Resume_Scrapper/Resumes/autoCV (1).pdf"
-
-    resume_text, extracted_links = read_resume.extract_text_and_links_from_pdf(pdf_path)
-    
-    print(f"Extractd Text: {resume_text}")
-
-    print("Extracted Links:")
-    for link in extracted_links:
-        print(link)
-    print("\n")
-    
-    for link in extracted_links:
-        if "github" in link:
-            Downloader(link)
