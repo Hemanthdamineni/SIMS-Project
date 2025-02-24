@@ -87,12 +87,11 @@ university_tiers = {
 if __name__ == "__main__":  
     resume_name = 'resume_2 (1).pdf'
     pdf_path = "Resume_Scrapper/Resumes/" + resume_name
-    # pdf_path = "Resume_Scrapper/Resumes/autoCV (1).pdf"
     resume_name = resume_name[:-4]
 
     resume_text, extracted_links = read_resume.extract_text_and_links_from_pdf(pdf_path)
     
-    with open(resume_name + ".txt", "wb") as f:
+    with open('Resume_Scrapper/Downloaded/resume_text/' + resume_name + ".txt", "wb") as f:
         f.write(resume_text.encode('utf-8'))
     print(f"Downloaded: {resume_name}.txt")
     
