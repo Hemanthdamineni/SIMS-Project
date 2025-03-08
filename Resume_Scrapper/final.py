@@ -86,7 +86,7 @@ def process_resume(pdf_path, company_df, skills_df, universities_df):
     # Fix count issue
     global count
     count += 1
-    print(f"Processed {count} resumes...")
+    print(f"✅ Processed {count} resumes...")
 
     return calculate_resume_score(company_ranks, skills_scores, university_rankings, has_experience)
 
