@@ -70,7 +70,7 @@ def process_resume(pdf_path, company_df, skills_df, universities_df):
     """Processes a resume and returns its score."""
     resume_text, extracted_links = read_resume.extract_text_and_links_from_pdf(pdf_path)
     resume_sections = parse_resume_sections(resume_text, pdf_path.split("/")[-1])
-    print(f"🔄 Extracted sections of {pdf_path.split('/')[-1]}")
+    print(f"\n🔄 Extracted sections of {pdf_path.split('/')[-1]}")
     
     company_ranks = match_keywords(resume_sections.get("EXPERIENCE", ""), company_df, 'Name', 'Rank')
     skills_scores = match_keywords(resume_sections.get("SKILLS", ""), skills_df, 'Skill', 'Score')
@@ -94,7 +94,7 @@ def process_resume(pdf_path, company_df, skills_df, universities_df):
 count = 0
 
 if __name__ == "__main__":
-    print("🔄 Loading datasets...")
+    print("\n🔄 Loading datasets...")
     company_df = load_dataset('/workspaces/SIMS-Project/Resume_Scrapper/Datasets/Companies_Dataset.csv')
     skills_df = load_dataset('/workspaces/SIMS-Project/Resume_Scrapper/Datasets/Skills_Dataset.csv')
     universities_df = load_dataset('/workspaces/SIMS-Project/Resume_Scrapper/Datasets/Universities_Dataset.csv')
