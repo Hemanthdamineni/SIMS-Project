@@ -85,7 +85,7 @@ university_tiers = {
 }
 
 if __name__ == "__main__":  
-    resume_name = 'resume_2 (1).pdf'
+    resume_name = 'Resume.pdf'
     pdf_path = "Resume_Scrapper/Resumes/" + resume_name
     resume_name = resume_name[:-4]
 

@@ -1,7 +1,8 @@
 import requests
+import os
 from bs4 import BeautifulSoup
 
-def Downloader(repo_link, base_path="Resume_Scrapper/Downloaded/code_files/"):
+def Downloader(repo_link, base_path="/workspaces/SIMS-Project/Resume_Scrapper/Downloaded/code_files/"):
     branch = "main"  # Change to "master" if needed
 
     # Step 1: Get all file paths
@@ -21,17 +22,23 @@ def Downloader(repo_link, base_path="Resume_Scrapper/Downloaded/code_files/"):
         elif "/tree/" in link:
             Downloader("https://github.com" + link)
             
-    files = set(files)  # Remove duplicates
+    files = list(set(files))
+    # print(f"Found {len(files)} files in {repo_link}")
+    files = [files[i][1:] for i in range(len(files))]
+    # print(files)
 
     # Step 2: Download each file
     for file in files:
-        raw_url = f"https://github.com/{file}"
+        raw_url = f"https://github.com/{path}/blob/{branch}/{file}"
         file_response = requests.get(raw_url)
         folder = raw_url.split("/")[-2]
 
         if file_response.status_code == 200:
-            with open(base_path + folder + "-"+ file.split("/")[-1], "wb") as f:
+            # print(base_path + folder + "-" + file.split("/")[-1])
+            os.makedirs("Resume_Scrapper/Downloaded/code_files", exist_ok=True)
+            with open(base_path + folder + "-" + file.split("/")[-1], "wb") as f:
                 f.write(file_response.content)
-            print(f"Downloaded: {file}")
+            # print(f"Downloaded: {file}")
         else:
             print(f"Failed to download: {file}")
+    

@@ -1,0 +1,13 @@
+Projects
+
+House Price Prediction
+Built a Linear Regression model predicting house prices based on features like area and location.
+efficiency through data cleaning, feature selection, and correlation visualization.
+
+GitHub Repository
+Improved model
+
+Disease Prediction
+GitHub Repository
+Developed a multi-class classification model to predict diseases from symptoms using Logistic Regression and Random
+Forests. Preprocessed datasets and engineered features for improved accuracy.
