@@ -3,6 +3,7 @@ import os
 from bs4 import BeautifulSoup
 
 def Downloader(repo_link, base_path="/workspaces/SIMS-Project/Resume_Scrapper/Downloaded/code_files/"):
+    file_name = repo_link.split("/")[-1]
     branch = "main"  # Change to "master" if needed
 
     # Step 1: Get all file paths
@@ -36,7 +37,7 @@ def Downloader(repo_link, base_path="/workspaces/SIMS-Project/Resume_Scrapper/Do
         if file_response.status_code == 200:
             # print(base_path + folder + "-" + file.split("/")[-1])
             os.makedirs("Resume_Scrapper/Downloaded/code_files", exist_ok=True)
-            with open(base_path + folder + "-" + file.split("/")[-1], "wb") as f:
+            with open(base_path + file_name + "-" + folder + "-" + file.split("/")[-1], "wb") as f:
                 f.write(file_response.content)
             # print(f"Downloaded: {file}")
         else:
